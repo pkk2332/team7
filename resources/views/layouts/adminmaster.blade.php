@@ -35,6 +35,9 @@
   <!-- plugins:js -->
 
   <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+        <script src=" {{ asset('js/bootstrap.min.js')}} "></script>
+    
+
 {{--   <script src=" {{ asset('js/jquery-3.3.1.slim.min.js') }} "></script> --}}
   <script src=" {{ asset('js/popper.min.js') }} "></script>
   <script src="{{ asset('js/jquery.datatables.min.js') }}"></script>
@@ -42,8 +45,6 @@
   <script src="{{ asset('js/plugins.js') }}"></script>
 
   <script src="{{ asset('js/all.js') }}"></script>
-      <script src=" {{ asset('js/bootstrap.min.js')}} "></script>
-    
 
   <script src="{{ asset('js/select2.full.min.js') }} "></script>
   <!-- endinject -->
