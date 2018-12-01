@@ -4,6 +4,14 @@ namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
+
+
+use App\Http\Middleware\entryadminmiddleware;
+use App\Http\Middleware\superadminmiddleware;
+use App\Http\Middleware\Role;
+
+
+
 class Kernel extends HttpKernel
 {
     /**
@@ -60,21 +68,9 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-    ];
+        'entryadminauth'=>entryadminmiddleware::class,
+        'superadminauth'=>superadminmiddleware::class,
+        'role'=>Role::class,
 
-    /**
-     * The priority-sorted list of middleware.
-     *
-     * This forces non-global middleware to always be in the given order.
-     *
-     * @var array
-     */
-    protected $middlewarePriority = [
-        \Illuminate\Session\Middleware\StartSession::class,
-        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-        \App\Http\Middleware\Authenticate::class,
-        \Illuminate\Session\Middleware\AuthenticateSession::class,
-        \Illuminate\Routing\Middleware\SubstituteBindings::class,
-        \Illuminate\Auth\Middleware\Authorize::class,
     ];
 }
