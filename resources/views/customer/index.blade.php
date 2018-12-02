@@ -81,9 +81,15 @@
 				</div>
 			</div>
 		</div> --}}
+
+
 		
 
 	</div>
+
+	<a href="{{route('all',['id'=>$c->id])}}"><h6 class="px-3"><u>See more</u> </h6></a>
+
+	<hr class="bg-secondary">
 
 	{{-- <div class="row py-5">
 		<div class="col-lg-4 col-md-6 col-sm-6 col-12 py-3">
