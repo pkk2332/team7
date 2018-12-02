@@ -57,10 +57,6 @@ class adminhomeController extends Controller
         $oldname=$request->name;
         $file_name =$request->file('file')->getClientOriginalName();
        
-
-
-
-
         $product=Product::find($request->id);
 
         $media=$product->media[$request->index];
@@ -69,7 +65,6 @@ class adminhomeController extends Controller
 
         $media->mime_type=$request->type;
         
-
         $media->size=$request->size;
        
          $media->save();
@@ -84,8 +79,6 @@ class adminhomeController extends Controller
     public function data(){
 
         if (\Auth::user()->admin_id==1) {
-
-
            $products=DB::table('products');
            return Datatables::of($products)
            ->addColumn("edit",function($products){
@@ -106,8 +99,6 @@ class adminhomeController extends Controller
        else
        {
 
-
-
            $products=DB::table('products')->where('admin_id',\Auth::user()->admin_id);
            return Datatables::of($products)
            ->addColumn("edit",function($products){
@@ -125,19 +116,12 @@ class adminhomeController extends Controller
            ->make(true);
 
        }
-       
-
-
-
-
    }
-
    public function data1(Request $request){
     $rm=$request->id;
 
     $images=Product::find($rm);
     return new ProductResource($images);
-
 }
     public function userdata(Request $request){
         $rm = $request->id;
@@ -179,9 +163,7 @@ class adminhomeController extends Controller
         $admin=Admin::find($admin_id);
         $c_id=$admin->category_id;
 
-
         $request->validate(Product::$rules);
-
 
         $product = Product::create([
             'name' => $request->name,
@@ -196,19 +178,17 @@ class adminhomeController extends Controller
         $files=$request->file('file');
         foreach ($files as $file) {
             $product->addMedia($file)->toMediaCollection();
-
         }
         $product->subcategories()->attach($request->sub_categories);
-
         $product->save();
         \Session::flash('msg', 'New Product has been added successfully.');
         \Session::flash('type', 'alert-success');
 
     }
 
-public function broadcast(){
-    $admin_id=\Session::get('admin_id');
-    event(new Testevent($admin_id));
+public function admincheckout(){
+    $allproduct=session('allproduct');
+    return view('admin.admincheckout',compact('allproduct'));
   }
     public function store(Request $request)
     {

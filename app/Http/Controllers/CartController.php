@@ -96,6 +96,8 @@ public function delete1(Request $request)
   }
 
   public function store1 (Request $request){
+    $allproduct=$request->products;
+    $sync_data=[];
     $checkout= Checkout::create([
         'user_id'=>\Auth::user()->id,
         'name'=>\Auth::user()->name,
@@ -103,31 +105,25 @@ public function delete1(Request $request)
         'subtotal'=>$request->Subtotal,
         'amount'=>$request->amount
     ]);
-    $allproduct=$request->products;
-    $i=0;
     
+    $i=0;  
     foreach($allproduct as $product){   
-        foreach($product as $id){
-            $productid[$i]=$id;
-            $i=$i+1;
-            break;
-         
-     }
-        }
+        $productid[$i]=$product['id'];
+        $productquantity[$i]=$product['quantity'];
+        $productprice[$i]=$product['price'];
+        $productadminid[$i]=$product['admin_id'];
+        $i=$i+1;
+    }
 
-    // foreach ($allproduct as $product) {
-    //      \Session::put('admin_id',$product['admin_id']);
-    //     // event(new Testevent($product['admin_id']));
-    // }
-
-    $checkout->products()->attach($productid);
-    $checkout->save(); 
-
+    for($j=0;$j<count($productid);$j++){
+        $sync_data[$productid[$j]]=['quantity'=>$productquantity[$j],'adminid'=>$productadminid[$j],'price'=>$productprice[$j]];
+    }
+    $checkout->products()->sync($sync_data);
+    $checkout->save();
     
-    
-    
+     
 }
-
+    
     /**
      * Display the specified resource.
      *

@@ -60,7 +60,7 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 
 
-Route::get('admin/broadcast','adminhomeController@broadcast')->name('broadcast');
+Route::post('admin/admincheckout','adminhomeController@admincheckout')->name('admincheckout');
 
 Route::get('login', 'SingleLoginController@showLoginForm')->name('login');
 Route::post('login', 'SingleLoginController@login');

@@ -2,7 +2,7 @@
 	
 </template>
 <script>
-	export default(){
+	export default{
 		mounted(){
 			Echo.private('id')
 			.listen('Testevent', (e) => {

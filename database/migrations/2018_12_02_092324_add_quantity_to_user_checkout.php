@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserCheckout extends Migration
+class AddQuantityToUserCheckout extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,10 @@ class CreateUserCheckout extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('user_checkouts', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('checkout_id');
-            $table->integer('product_id');
-            $table->timestamps();
+        Schema::table('user_checkouts', function (Blueprint $table) {
+            //
+            $table->integer('quantity');
         });
-
-         
     }
 
     /**
@@ -31,7 +26,9 @@ class CreateUserCheckout extends Migration
      */
     public function down()
     {
-        //
-        Schema::dropIfExists('user_checkouts');
+        Schema::table('user_checkouts', function (Blueprint $table) {
+            //
+            $table->dropColumn('quantity');
+        });
     }
 }
