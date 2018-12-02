@@ -96,30 +96,32 @@ public function delete1(Request $request)
   }
 
   public function store1 (Request $request){
-    // $checkout= Checkout::create([
-    //     'user_id'=>\Auth::user()->id,
-    //     'name'=>\Auth::user()->name,
-    //     'tax'=>$request->tax,
-    //     'subtotal'=>$request->Subtotal,
-    //     'amount'=>$request->amount
-    // ]);
+    $checkout= Checkout::create([
+        'user_id'=>\Auth::user()->id,
+        'name'=>\Auth::user()->name,
+        'tax'=>$request->tax,
+        'subtotal'=>$request->Subtotal,
+        'amount'=>$request->amount
+    ]);
     $allproduct=$request->products;
     $i=0;
     
     foreach($allproduct as $product){   
-        $productid[$i]=$product['id'];
-        $i=$i+1;
-        break;
+        foreach($product as $id){
+            $productid[$i]=$id;
+            $i=$i+1;
+            break;
          
      }
+        }
 
-    foreach ($allproduct as $product) {
-         \Session::put('admin_id',$product['admin_id']);
-        // event(new Testevent($product['admin_id']));
-    }
+    // foreach ($allproduct as $product) {
+    //      \Session::put('admin_id',$product['admin_id']);
+    //     // event(new Testevent($product['admin_id']));
+    // }
 
-    // $checkout->products()->attach($productid);
-    // $checkout->save(); 
+    $checkout->products()->attach($productid);
+    $checkout->save(); 
 
     
     

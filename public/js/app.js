@@ -25196,7 +25196,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         tax: this.tax,
         amount: this.Amount
       }).then(function (response) {
-        //window.location="/" 
+        window.location = "/product";
       }).catch(function (error) {});
     },
     remove: function remove(a) {

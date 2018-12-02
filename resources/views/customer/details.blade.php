@@ -70,7 +70,7 @@
  		<div class="col-lg-8 col-md-8 col-sm-12 col-12 p-0 px-5">
  			<div class="pb-1">
  				<h1 class="display-4">{{ ucfirst($product->name) }}</h1>
- 				<p>Price : ${{ $product->price }}</p>
+ 				<p>Price : {{ $product->price }} Ks</p>
  			</div>
  			<hr class="bg-secondary">
  			<div class="pt-2">
