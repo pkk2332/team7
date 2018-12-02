@@ -16,9 +16,11 @@
 				<img class=" productimage rounded mx-auto d-block" src="{{$p->media[0]->getUrl()}}">
 			</div>
 
-			<div class="card-body pb-2">
-				<h5 class="card-title text-center">{{ $p->name}}</h5>
-				<p class="text-center">Price : {{$p->price}} Ks</p>
+			<a href="{{route('product.show',['id'=>$p->id])}}">
+
+				<div class="card-body pb-2">
+					<h5 class="card-title text-center">{{ $p->name}}</h5>
+					<p class="text-center">Price : {{$p->price}} Ks</p>
 				{{-- <div class="p-2">
 					<a href="{{route('product.vote',['id'=>$p->id])}}" class="btn btn-success">Vote</a>
 				</div>
@@ -36,9 +38,10 @@
 				</div>
 
 			</div>
-		</div>
+		</a>
 	</div>
-	@endforeach
+</div>
+@endforeach
 </div>
 
 @endsection
