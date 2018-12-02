@@ -6,6 +6,7 @@
  */
  import hh from './components/HomeComponent'
  import mm from './components/ImageComponent'
+ import noti from './components/Notification'
  import Vue from 'vue';
  require('./bootstrap');
 
@@ -20,13 +21,13 @@
 
  const app = new Vue({
  	el:"#app",
- 	created(){
- 		Echo.private('id')
- 		.listen('Testevent', (e) => {
- 			console.log(e);
- 		});
- 	},
+ 	// created(){
+ 	// 	Echo.private('id')
+ 	// 	.listen('Testevent', (e) => {
+ 	// 		console.log(e);
+ 	// 	});
+ 	// },
  	components: {
- 		hh,mm
+ 		hh,mm,noti
  	}
  });
