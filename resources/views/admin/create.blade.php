@@ -166,6 +166,7 @@
 @endsection
 
 @section("script")
+<script src="{{ asset('js/app,js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script>
 <script src="{{ asset('js/dropzone1.js') }}"></script>
 
