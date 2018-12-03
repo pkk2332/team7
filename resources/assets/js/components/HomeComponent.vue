@@ -101,7 +101,7 @@
           amount:this.Amount
         })
         .then(function (response) {
-// window.location="/admin/admincheckout" 
+  window.location="/product" 
 })
         .catch(function (error) {
 

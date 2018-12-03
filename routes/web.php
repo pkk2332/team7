@@ -32,6 +32,14 @@ Route::post('admin/delete','adminhomeController@delete');
 Route::get("admin/data","adminhomeController@data")->name("admin.data");
 Route::get("admin/data1","adminhomeController@data1")->name("admin.data1");
 Route::get("admin/checkout", "adminhomeController@checkout")->name("admin.checkout");
+Route::get('admin/downloadexcel','adminhomeController@downloadexcel')->name('downloadexcel');
+
+Route::get('admin/admincheckout','adminhomeController@admincheckout')->name('admincheckout');
+
+Route::get('admin/singlepdf/{id}','adminhomeController@downloadsinglepdf')->name('downloadsinglepdf');
+Route::get('admin/allpdf','adminhomeController@downloadall')->name('allpdf');
+
+
 Route::get("admin/userdata", "adminhomeController@userdata")->name("admin.userdata");
 
 
@@ -59,8 +67,6 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 
 
-
-Route::post('admin/admincheckout','adminhomeController@admincheckout')->name('admincheckout');
 
 Route::get('login', 'SingleLoginController@showLoginForm')->name('login');
 Route::post('login', 'SingleLoginController@login');

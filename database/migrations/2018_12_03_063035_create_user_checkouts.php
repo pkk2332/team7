@@ -17,10 +17,10 @@ class CreateUserCheckouts extends Migration
             $table->increments('id');
             $table->integer('checkout_id');
             $table->integer('product_id');
+            $table->string('name');
             $table->integer('quantity');
             $table->integer('adminid');
             $table->integer('price');
-            $table->timestamps();
         });
     }
 

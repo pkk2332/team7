@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\Product;
 use App\User;
+use PDF;
 use App\SubCategory;
+use App\Exports\CheckProductsExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\DB;
 use App\Admin;
 use App\DataTables\ProductDatatable;
@@ -129,10 +132,43 @@ class adminhomeController extends Controller
         $user = User::find($rm);
         return new Checkout($user);
     }
-
+    //for superadmin checkout
     public function checkout(CheckoutDataTable $checkout){
         return $checkout->render('admin.checkout');
     }
+    //for admin checkout
+    public function admincheckout(){
+        $admin_id=\Auth::user()->admin_id;
+        $allproduct=DB::table('user_checkouts')->where('adminid',$admin_id)->get();
+        
+        return view("admin.admincheckout",compact("allproduct"));
+    }
+    //for downloading single pdf file
+
+    public function downloadsinglepdf($id){
+        $detail=DB::table('user_checkouts')->where('id',$id)->get();
+        
+        foreach ($detail as $v) {
+            $pdf = PDF::loadView('pdf', compact('v'));
+        }
+         
+        return $pdf->download('report.pdf');
+    }
+    //for downloading all pdf file
+
+    public function downloadall(){
+        $admin_id=\Auth::user()->admin_id;
+        $gg=DB::table('user_checkouts')->where('adminid',$admin_id)->get();
+        $pdf = PDF::loadView('allpdf', compact('gg'));
+         return $pdf->download('All reports.pdf');
+    }
+    //for downloading excel file
+    public function downloadexcel(){
+        return Excel::download(new CheckProductsExport, 'all reports.xlsx');
+    }
+
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -186,10 +222,7 @@ class adminhomeController extends Controller
 
     }
 
-public function admincheckout(){
-    $allproduct=session('allproduct');
-    return view('admin.admincheckout',compact('allproduct'));
-  }
+
     public function store(Request $request)
     {
         //

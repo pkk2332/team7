@@ -109,6 +109,7 @@ public function delete1(Request $request)
     $i=0;  
     foreach($allproduct as $product){   
         $productid[$i]=$product['id'];
+        $productname[$i]=$product['name'];
         $productquantity[$i]=$product['quantity'];
         $productprice[$i]=$product['price'];
         $productadminid[$i]=$product['admin_id'];
@@ -116,9 +117,9 @@ public function delete1(Request $request)
     }
 
     for($j=0;$j<count($productid);$j++){
-        $sync_data[$productid[$j]]=['quantity'=>$productquantity[$j],'adminid'=>$productadminid[$j],'price'=>$productprice[$j]];
+        $sync_data[$productid[$j]]=['name'=>$productname[$j],'quantity'=>$productquantity[$j],'adminid'=>$productadminid[$j],'price'=>$productprice[$j]];
     }
-    $checkout->products()->sync($sync_data);
+    $checkout->products()->sync($sync_data,false);
     $checkout->save();
     
      
