@@ -1,6 +1,7 @@
 @extends("layouts.adminmaster")
 
 @section("title")
+
 <title>Admin Panel</title>
 
 @endsection
@@ -9,6 +10,8 @@
 
 @include('admin.header')
 <!-- partial -->
+
+
 <div class="main-panel">
   <div class="content-wrapper">
     <div class="row">
@@ -53,7 +56,7 @@
 
   </div>
   <div id="app">
-    
+
   </div>
 
   @include('admin.footer')
@@ -79,7 +82,7 @@
   </script> --}}
 
 
-
+<link rel="stylesheet" href="{{ asset('js/app.js') }}">
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
 <script src="https:
 //cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.js"></script>
