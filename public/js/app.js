@@ -25033,12 +25033,6 @@ window.Vue = __webpack_require__(4);
 
 var app = new __WEBPACK_IMPORTED_MODULE_3_vue___default.a({
   el: "#app",
-  // created(){
-  // 	Echo.private('id')
-  // 	.listen('Testevent', (e) => {
-  // 		console.log(e);
-  // 	});
-  // },
   components: {
     hh: __WEBPACK_IMPORTED_MODULE_0__components_HomeComponent___default.a, mm: __WEBPACK_IMPORTED_MODULE_1__components_ImageComponent___default.a, noti: __WEBPACK_IMPORTED_MODULE_2__components_Notification___default.a
   }
@@ -25785,6 +25779,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+	data: function data() {
+		return {};
+	},
 	mounted: function mounted() {
 		Echo.private('id').listen('Testevent', function (e) {
 			console.log(e);

@@ -16,21 +16,23 @@ use App\Events\Testevent;
 Route::get('/', function () {
 	return view('welcome');
 });
+Route::get("admin/data","adminhomeController@data")->name("admin.data");
+Route::get("admin/data1","adminhomeController@data1")->name("admin.data1");
+Route::post('cart/save', 'CartController@store1');
+Route::post('cart/delete', 'CartController@delete1');
+Route::post('admin/save', 'adminhomeController@store1');
+Route::post('admin/pushphoto', 'adminhomeController@pushphoto');
+Route::post('admin/delete','adminhomeController@delete');
+
+
+
 Route::get('admin/register', 'AdminRegisterController@showRegistrationForm')->name('adminregister');
 Route::post('admin/register', 'AdminRegisterController@register');
 
 
-Route::post('cart/save', 'CartController@store1');
-
-Route::post('cart/delete', 'CartController@delete1');
 
 
 
-Route::post('admin/save', 'adminhomeController@store1');
-Route::post('admin/pushphoto', 'adminhomeController@pushphoto');
-Route::post('admin/delete','adminhomeController@delete');
-Route::get("admin/data","adminhomeController@data")->name("admin.data");
-Route::get("admin/data1","adminhomeController@data1")->name("admin.data1");
 Route::get("admin/checkout", "adminhomeController@checkout")->name("admin.checkout");
 Route::get('admin/downloadexcel','adminhomeController@downloadexcel')->name('downloadexcel');
 

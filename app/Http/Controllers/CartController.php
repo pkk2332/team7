@@ -29,6 +29,12 @@ class CartController extends Controller
  return response()->json([$product]);
 
 }
+
+
+
+
+
+
 public function delete1(Request $request)
 {
     $id=$request->id;
@@ -96,7 +102,9 @@ public function delete1(Request $request)
   }
 
   public function store1 (Request $request){
+
     $allproduct=$request->products;
+    // dd($allproduct);
     $sync_data=[];
     $checkout= Checkout::create([
         'user_id'=>\Auth::user()->id,
@@ -105,23 +113,43 @@ public function delete1(Request $request)
         'subtotal'=>$request->Subtotal,
         'amount'=>$request->amount
     ]);
-    
-    $i=0;  
-    foreach($allproduct as $product){   
-        $productid[$i]=$product['id'];
-        $productname[$i]=$product['name'];
-        $productquantity[$i]=$product['quantity'];
-        $productprice[$i]=$product['price'];
-        $productadminid[$i]=$product['admin_id'];
-        $i=$i+1;
-    }
 
-    for($j=0;$j<count($productid);$j++){
-        $sync_data[$productid[$j]]=['name'=>$productname[$j],'quantity'=>$productquantity[$j],'adminid'=>$productadminid[$j],'price'=>$productprice[$j]];
-    }
-    $checkout->products()->sync($sync_data,false);
-    $checkout->save();
     
+    // $i=0;  
+    // foreach($allproduct as $product){   
+    //     $productid[$i]=$product['id'];
+    //     $productname[$i]=$product['name'];
+    //     $productquantity[$i]=$product['quantity'];
+    //     $productprice[$i]=$product['price'];
+    //     $productadminid[$i]=$product['admin_id'];
+    //     $i=$i+1;
+    // }
+
+    // for($j=0;$j<count($productid);$j++){
+    //     $sync_data[$productid[$j]]=['name'=>$productname[$j],'quantity'=>$productquantity[$j],'adminid'=>$productadminid[$j],'price'=>$productprice[$j]];
+    // }
+    // $checkout->products()->sync($sync_data,false);
+    // $checkout->save();
+$id=$checkout->id;
+foreach ($allproduct as $product) {
+
+     $ALL=\DB::table('user_checkouts')->insert([[
+    'checkout_id' =>$id,
+    'product_id' => $product['id'],
+    'name'=>$product['name'],
+    'quantity'=>$product['quantity'],
+    'adminid'=>$product['admin_id'],
+    'price'=>$product['price']
+]]);
+
+session()->forget('cart');
+
+///this is for broadcast
+
+}
+
+
+
      
 }
     
@@ -133,7 +161,7 @@ public function delete1(Request $request)
      */
     public function show(Cart $cart)
     {
-        //
+     
 
 
     }

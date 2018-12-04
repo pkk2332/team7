@@ -21,12 +21,6 @@
 
  const app = new Vue({
  	el:"#app",
- 	// created(){
- 	// 	Echo.private('id')
- 	// 	.listen('Testevent', (e) => {
- 	// 		console.log(e);
- 	// 	});
- 	// },
  	components: {
  		hh,mm,noti
  	}

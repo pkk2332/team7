@@ -3,6 +3,11 @@
 </template>
 <script>
 	export default{
+		data(){
+			return{
+			}
+		},
+
 		mounted(){
 			Echo.private('id')
 			.listen('Testevent', (e) => {

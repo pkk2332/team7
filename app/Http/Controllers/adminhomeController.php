@@ -30,7 +30,7 @@ class adminhomeController extends Controller
 
     public function __construct() 
     {
-       $this->middleware('role:admin|superadmin');
+       $this->middleware(['auth','role:admin|superadmin']);
     }
 
     
@@ -79,6 +79,10 @@ class adminhomeController extends Controller
 
         return response()->json(['success']);
     }
+
+
+
+
     public function data(){
 
         if (\Auth::user()->admin_id==1) {
@@ -120,22 +124,48 @@ class adminhomeController extends Controller
 
        }
    }
+
+
+
+
+
    public function data1(Request $request){
     $rm=$request->id;
 
     $images=Product::find($rm);
     return new ProductResource($images);
 }
+
+
+
+
+
+
+
     public function userdata(Request $request){
         $rm = $request->id;
         
         $user = User::find($rm);
         return new Checkout($user);
     }
+
+
+
+
+
+
+
+
     //for superadmin checkout
     public function checkout(CheckoutDataTable $checkout){
         return $checkout->render('admin.checkout');
     }
+
+
+
+
+
+
     //for admin checkout
     public function admincheckout(){
         $admin_id=\Auth::user()->admin_id;
@@ -329,7 +359,7 @@ class adminhomeController extends Controller
               $image->delete();
           }
          \Session::flash('msg', 'Product has been successfully deleted');
-           \Session::flash('type', 'alert-success');
+         \Session::flash('type', 'alert-success');
 
           return redirect('admin');
       }

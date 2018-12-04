@@ -101,7 +101,7 @@
           amount:this.Amount
         })
         .then(function (response) {
-  window.location="/product" 
+ window.location="/product" 
 })
         .catch(function (error) {
 

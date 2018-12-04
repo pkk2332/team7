@@ -138,6 +138,10 @@ class SingleLoginController extends Controller
      
     protected function authenticated(Request $request, $user)
     {
+
+        if ($user->admin_id==null) {
+          return redirect('/product');  
+          }       
         $role=Admin::find($user->admin_id)->role;
         if ( $role=="admin" ) {// do your margic here
            return redirect()->route('admin.index');

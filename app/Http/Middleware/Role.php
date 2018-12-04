@@ -16,9 +16,14 @@ class Role
      */
     public function handle($request, Closure $next, $role)
     {
-        
-        $userrole = Admin::find(\Auth::user()->admin_id)->role;
-        if ( auth()->check()) {
+
+        if (\Auth::check()) {
+
+            if (\Auth::user()->admin_id==null) {
+                   abort('404');
+            }
+
+            $userrole = Admin::find(\Auth::user()->admin_id)->role;
             $data = explode("|", $role);
 
             foreach ($data as $key) {
@@ -27,7 +32,7 @@ class Role
                 }
 
             }
-            abort('403');
+            abort('404');
         }
         
         redirect('/login');
