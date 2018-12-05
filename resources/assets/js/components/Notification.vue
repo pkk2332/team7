@@ -7,7 +7,7 @@
 		<div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
 			<a class="dropdown-item preview-item">
 				<div class="preview-item-content">
-					<h6 class="preview-subject font-weight-medium text-dark">New user registration</h6>
+					<a href="/admin/admincheckout" v-for="notify in noti"><h6 class="preview-subject font-weight-medium text-dark">{{notify.name}} has been bought</h6></a>
 				</div>
 			</a>
 		</div>
@@ -18,8 +18,7 @@
 		data(){
 			return{
 				noti:[],
-
-
+				adminid:null
 			}
 		},
 		computed:{
@@ -44,13 +43,20 @@
 			axios.get('/admin/noti')
 			.then(function (response) {
 				that.noti=response.data[0]
+				that.adminid=response.data[1]
 
-				//console.log(that.noti);
+				console.log(that.noti);
 				//console.log(response.data[0]);
 
-				Echo.private(that.noti.id)
+					
+				Echo.channel(`id.${that.adminid}`)
 				.listen('Testevent', (e) => {
-					console.log(e);
+				
+					that.noti.push({
+						name:e.name,
+						seen:false
+					})
+					console.log(that.noti)	
 				});
 
 

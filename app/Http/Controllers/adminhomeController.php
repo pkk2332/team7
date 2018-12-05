@@ -134,9 +134,9 @@ public function noti(){
 
     $noti=\DB::table('user_checkouts')
      ->where('adminid',$id)
-    ->where('seen',false)->get();
+    ->where('seen',false)->select('name','seen')->get();
 
-    return response()->json([$noti]);
+    return response()->json([$noti,$id]);
 
 
 }

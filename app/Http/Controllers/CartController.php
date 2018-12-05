@@ -113,9 +113,7 @@ public function delete1(Request $request)
         'subtotal'=>$request->Subtotal,
         'amount'=>$request->amount
     ]);
-    foreach($allproduct as $product){
-        event(new Testevent($product['admin_id']));
-    }
+    
 
     $id=$checkout->id;
     foreach ($allproduct as $product) {
@@ -127,8 +125,12 @@ public function delete1(Request $request)
         'quantity'=>$product['quantity'],   
         'adminid'=>$product['admin_id'],
         'price'=>$product['price']
-    ]]);
 
+
+        //broadcasting
+        
+    ]]);
+       event(new Testevent($product['admin_id'],$product['name']));
        session()->forget('cart');
 
 ///this is for broadcast
