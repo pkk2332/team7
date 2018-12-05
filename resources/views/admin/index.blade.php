@@ -20,25 +20,22 @@
           <div class="card-body">
 
             @include('session')
+
+            @if(\Auth::user()->seen==false)
+
+              <p>To get all our functionalities the admins need to install one application.</p>
+              <p>for window 32 bit plz click <a href="https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox-0.12.5-1.msvc2015-win32.exe"> this link </a></p>
+              <p>for windows 64 bit plx click <a href="https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox-0.12.5-1.msvc2015-win64.exe">this link</a></p>
+              <p>for ubuntu plx click <a href="https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.bionic_amd64.deb">this link</a></p>
+              <p>for mac OS cocoa 64 bit plx click <a href="https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox-0.12.5-1.macos-cocoa.pkg">this link</a></p>
+              <p>for mac OS plx click <a href="https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox-0.12.5-1.macos-carbon.pkg">this link</a></p>
+              <a href="{{route('change')}}">Already Installed</a>
+            @endif
+
+
             {!! $dataTable->table() !!}
 
-{{--             <div class="table-responsive">
-              <table class="table table-bordered" id="products">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Created At</th>
-                    <th>Updated At</th>
-                    <th>Action</th>
-                    <th></th>
-                  </tr>
-                </thead>
-              </table>
-            </div> --}}
-            
+                        
 
           </div>
         </div>

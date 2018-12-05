@@ -31,6 +31,6 @@ class Testevent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('id');
+        return new PrivateChannel($this->message);
     }
 }

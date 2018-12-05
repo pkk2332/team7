@@ -99,9 +99,7 @@
     </div>
 
     <div class="col-md-6 ">
-      <div id="app">
-         <mm></mm>
-      </div>
+      <mm></mm>
     </div>
   </div>
 </div>

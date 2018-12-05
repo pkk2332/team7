@@ -18,10 +18,11 @@ class CreateUserCheckouts extends Migration
             $table->integer('checkout_id');
             $table->integer('product_id');
             $table->string('name');
+            $table->integer('price');
             $table->integer('quantity');
             $table->integer('adminid');
-            $table->boolean('read')->default(false);
-            $table->integer('price');
+            $table->boolean('seen')->default(false);
+            $table->timestamps();
         });
     }
 

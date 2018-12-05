@@ -113,7 +113,9 @@ public function delete1(Request $request)
         'subtotal'=>$request->Subtotal,
         'amount'=>$request->amount
     ]);
-
+    foreach($allproduct as $product){
+        event(new Testevent($product['admin_id']));
+    }
 
     $id=$checkout->id;
     foreach ($allproduct as $product) {
@@ -122,7 +124,7 @@ public function delete1(Request $request)
         'checkout_id' =>$id,
         'product_id' => $product['id'],
         'name'=>$product['name'],
-        'quantity'=>$product['quantity'],
+        'quantity'=>$product['quantity'],   
         'adminid'=>$product['admin_id'],
         'price'=>$product['price']
     ]]);
