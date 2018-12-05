@@ -221,7 +221,6 @@
                 <span class="menu-title">Admin Register</span>
               </a>
             </li>
-            @endif
             
             <li class="nav-item">
               <a class="nav-link" href="{{route('admin.checkout')}}">
@@ -229,12 +228,15 @@
                 <span class="menu-title">Checkout Table</span>
               </a>
             </li>
+            @endif
+            @if(App\Admin::find(\Auth::user()->admin_id)->role=="admin")
             <li class="nav-item">
-              <a class="nav-link" href="../../pages/icons/font-awesome.html">
+              <a class="nav-link" href="{{route('admincheckout')}}">
                 <i class="menu-icon mdi mdi-sticker"></i>
-                <span class="menu-title">Icons</span>
+                <span class="menu-title">Checkout Table</span>
               </a>
             </li>
+            @endif
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
                 <i class="menu-icon mdi mdi-restart"></i>

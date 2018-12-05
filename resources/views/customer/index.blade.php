@@ -11,8 +11,9 @@
 	@section('content')
 	@include('customer.navbar',['category'=>$category1])
 
-	@include('session')
+
 	<div class="container-fluid py-5">
+	@include('session')
 		
 
 		@foreach($category as $c)
