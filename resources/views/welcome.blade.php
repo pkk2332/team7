@@ -13,7 +13,7 @@
                     <h1 class="text-white font-weight-light">Welcome to Symphony Shopping</h1>
                 </div>
             </div>
-            <div class="bg-dark window pt-5">
+            <div class="bg-dark p-5">
                 <div class="">
                     <h5 class="text-white font-weight-light p-5" style="line-height: 1.8;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a accusamus eos omnis repellat tenetur molestiae, explicabo veritatis quam consectetur. Harum porro quis aut laborum odit, mollitia fuga ex qui. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a accusamus eos omnis repellat tenetur molestiae, explicabo veritatis quam consectetur. Harum porro quis aut laborum odit, mollitia fuga ex qui. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a accusamus eos omnis repellat tenetur molestiae, explicabo veritatis quam consectetur. Harum porro quis aut laborum odit, mollitia fuga ex qui. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a accusamus eos omnis repellat tenetur molestiae, explicabo veritatis quam consectetur. Harum porro quis aut laborum odit, mollitia fuga ex qui.</h5>
                 </div>
@@ -41,7 +41,7 @@
                 </div>
             </div>
 
-            <div class="bg-dark window pt-5">
+            <div class="bg-dark p-5">
                 <div class="">
                     <h5 class="text-white font-weight-light p-5" style="line-height: 1.8;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a accusamus eos omnis repellat tenetur molestiae, explicabo veritatis quam consectetur. Harum porro quis aut laborum odit, mollitia fuga ex qui. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a accusamus eos omnis repellat tenetur molestiae, explicabo veritatis quam consectetur. Harum porro quis aut laborum odit, mollitia fuga ex qui. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a accusamus eos omnis repellat tenetur molestiae, explicabo veritatis quam consectetur. Harum porro quis aut laborum odit, mollitia fuga ex qui. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a accusamus eos omnis repellat tenetur molestiae, explicabo veritatis quam consectetur. Harum porro quis aut laborum odit, mollitia fuga ex qui.</h5>
                 </div>
