@@ -1,6 +1,6 @@
 <nav class="navbar navbar-fixed navbar-expand-lg navbar-dark">
   {{-- <a href="{{ url ('/product') }}"><img src="{{ asset('images/logo.png') }}" width="50" height="50" alt=""></a> --}}
-  <a href="{{ url ('/product') }}" class="navbar-brand"><h3 class="text-white">Symphony</h3></a>
+  <a href="{{ url ('/') }}" class="navbar-brand"><h3 class="text-white">Symphony</h3></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -9,6 +9,9 @@
 
   <div class="collapse navbar-collapse justify-content-end px-5" id="navbarNavDropdown">
     <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link px-5" href="{{ url ('/product') }}">Products</a>
+      </li>
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -22,7 +25,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link px-5 href="/cart"><i class="fas fa-shopping-cart"></i></a>
+        <a class="nav-link px-5" href="/cart"><i class="fas fa-shopping-cart"></i></a>
       </li>
 
       <li class="nav-item dropdown">
@@ -52,7 +55,3 @@
 
 
 </nav>
-
-
-
-<div class="pt-5"></div>

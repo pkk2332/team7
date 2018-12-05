@@ -13,7 +13,7 @@
 
 
 	<div class="container-fluid py-5">
-	@include('session')
+		@include('session')
 		
 
 		@foreach($category as $c)
@@ -64,63 +64,25 @@
 			@endif
 			@endforeach
 			@endforeach
-			
-			
-		{{-- <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-4">
-			<div class="card pt-3">
-				<div class="window">
-					<img class=" productimage rounded mx-auto d-block" src="{{$p->media[0]->getUrl()}}">
-				</div>
-				{{$p->id}}
-				<div class="card-body pb-2">
-					<a href="{{route('product.show',['id'=>$p->id])}}"><h5 class="card-title text-center">{{ ucfirst($p->name)}}</h5></a>
-					<p class="text-center">Price : ${{$p->price}}</p>
-					<div class="text-center p-2">
-						<a href="{{route('product.show',['id'=>$p->id])}} " class="btn btn-primary btn-block text-center">Add to cart</a>
-					</div>
-					
-				</div>
-			</div>
-		</div> --}}
 
+			
+
+		</div>
+
+		<a href="{{route('all',['id'=>$c->id])}}"><h6 class="px-3"><u>See more</u> </h6></a>
+
+		<hr class="bg-secondary">
+
+
+
+		@endforeach
 
 		
 
 	</div>
 
-	<a href="{{route('all',['id'=>$c->id])}}"><h6 class="px-3"><u>See more</u> </h6></a>
-
-	<hr class="bg-secondary">
-
-	{{-- <div class="row py-5">
-		<div class="col-lg-4 col-md-6 col-sm-6 col-12 py-3">
-			<div class="card adcard {{ "bg-secondary" }}  text-center d-flex justify-content-center">
-				<h3 class="{{ "text-white" }}"><i class="fab fa-apple-pay display-1"></i></h3>
-			</div>
-		</div>
-
-		<div class="col-lg-4 col-md-6 col-sm-6 col-12 py-3">
-			<div class="card adcard adcard {{ "bg-warning" }}  text-center d-flex justify-content-center">
-				<h3 class="{{ "text-dark" }}">New Arrivals</h3>
-			</div>
-		</div>
-
-		<div class="col-lg-4 col-md-6 col-sm-6 col-12 py-3">
-			<div class="card adcard adcard {{ "bg-success" }} text-center d-flex justify-content-center">
-				<h3 class="{{ "text-white" }}"><i class="fab fa-pied-piper display-1"></i></h3>
-			</div>
-		</div>
-	</div>
-	--}}
-
-	@endforeach
-
-	
-
-</div>
 
 
-
-{{ $category->links() }}
-@endsection
+	{{ $category->links() }}
+	@endsection
 

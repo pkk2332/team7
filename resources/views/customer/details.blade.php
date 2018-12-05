@@ -14,7 +14,7 @@
  	<div class="row pt-5">
  		<div class="col-lg-4 col-md-4 col-sm-12 col-12 p-0 ">
  			<div class="row p-0">
- 				<div class="col-12 d-flex justify-content-center p-0">
+ 				<div class="col-12 d-flex justify-content-center p-0 pl-4">
  					<div class="detail-window p-0 bg-white d-flex align-items-center">
  						<img src="{{$product->media[0]->getUrl()}}" class="detailimage" alt="Responsive image">
  					</div>
@@ -46,7 +46,7 @@
  					@foreach($subs as $sub)
 
  					
- 					<kbd class="bg-light text-dark">{{ $sub->name }}</kbd>
+ 					<a href=""><kbd class="bg-light text-dark">{{ $sub->name }}</kbd></a>
 
  					@endforeach
  				</div>
