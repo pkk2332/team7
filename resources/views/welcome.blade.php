@@ -10,7 +10,7 @@
         <div class="col p-0">
             <div class="parallax-window d-flex align-items-center justify-content-center pt-5" data-parallax="scroll" data-image-src="{{ asset('images/main/symphony.jpg') }}">
                 <div class=text-white">
-                    <h1 class="text-white font-weight-light">Henlo, Welcome to Symphony</h1>
+                    <h1 class="text-white font-weight-light">Welcome to Symphony Shopping</h1>
                 </div>
             </div>
             <div class="bg-dark window pt-5">
@@ -23,7 +23,7 @@
                 <div></div>
                 <div class="p-5">
                     <div class="bg-dark p-5">
-                        <h1 class="text-white text-right">No.1 Shopping site in Myanmar</h1>
+                        <h1 class="text-white text-right">No.1 Shopping website in Myanmar</h1>
                         <br>
                         <p class="text-white text-left">
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
@@ -68,9 +68,23 @@
                 </div>
             </div>
 
-            <div class="bg-dark p-5 d-flex align-items-center justify-content-center">
-                <div>
-                    <h5 class="text-white font-weight-light">2018 Copyright &copy; Symphony</h5>
+            <div class="bg-dark p-4 d-flex align-items-center justify-content-center">
+                <div class="pt-5">
+
+
+                    <h4 class="text-white text-center">Creators of this website</h4>
+                    <p class="text-white text-center">
+                        Phyo Ko Ko <br>
+                        Phyo Lin Maung <br>
+                        Htet Linn Oo <br>
+                        Nay Linn Oo <br>
+                    </p>
+
+                    <br><br>
+
+
+                    <h4 class="text-white font-weight-light text-center">2019 Copyright &copy; Symphony</h4>
+                    <h6 class="text-white font-weight-light text-center">No. 69, Barhmamahoke Street, Nowhere Tsp, Yangon, Myanmar</h6>
                 </div>
             </div>
 
