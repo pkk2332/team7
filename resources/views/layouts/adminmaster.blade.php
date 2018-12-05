@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   
-@yield("title")
+  @yield("title")
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{ asset('css/plugins.css') }}">
   <!-- endinject -->
@@ -22,27 +22,27 @@
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="{{ asset('css/fontawsome.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/all.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/all.css') }}">
   <!-- endinject -->
   <link rel="shortcut icon" href="../../images/favicon.png" />
 
 
-   
+
 </head>
 
-<body>
+<body style="background-image: url("https://www.crowdspring.com/blog/wp-content/uploads/2009/11/2616906744_a238697a95_b.jpg");">
 
-@yield("content")
+  @yield("content")
   <!-- plugins:js -->
   <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
 
 
-          <script src=" {{ asset('js/bootstrap.min.js')}} "></script>
-    
-    <script src="{{asset('js/app.js')}}"></script>
+  <script src=" {{ asset('js/bootstrap.min.js')}} "></script>
 
-{{--   <script src=" {{ asset('js/jquery-3.3.1.slim.min.js') }} "></script> --}}
-{{--   <script src=" {{ asset('js/popper.min.js') }} "></script> --}}
+  <script src="{{asset('js/app.js')}}"></script>
+
+  {{--   <script src=" {{ asset('js/jquery-3.3.1.slim.min.js') }} "></script> --}}
+  {{--   <script src=" {{ asset('js/popper.min.js') }} "></script> --}}
   <script src="{{ asset('js/jquery.datatables.min.js') }}"></script>
 
   <script src="{{ asset('js/plugins.js') }}"></script>
@@ -57,8 +57,8 @@
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script> --}}
-@yield("script")
-@stack('scripts')
+  @yield("script")
+  @stack('scripts')
 
 </body>
 
