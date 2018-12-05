@@ -20,13 +20,13 @@ class CartController extends Controller
       
       if (session()->has('cart')) {
         foreach (session('cart') as $a) {
-         $product[$i]=Product::find($a);
-         $product[$i]['image']=$product[$i]->media[0]->getFullUrl();
-         $i=$i+1;
-     }
- }
+           $product[$i]=Product::find($a);
+           $product[$i]['image']=$product[$i]->media[0]->getFullUrl();
+           $i=$i+1;
+       }
+   }
 
- return response()->json([$product]);
+   return response()->json([$product]);
 
 }
 
@@ -59,9 +59,9 @@ public function delete1(Request $request)
      */
     public function index()
     {
-     return view ('customer.cart.index');
+       return view ('customer.cart.index');
 
- }
+   }
 
     /**
      * Show the form for creating a new resource.
@@ -114,45 +114,30 @@ public function delete1(Request $request)
         'amount'=>$request->amount
     ]);
 
-    
-    // $i=0;  
-    // foreach($allproduct as $product){   
-    //     $productid[$i]=$product['id'];
-    //     $productname[$i]=$product['name'];
-    //     $productquantity[$i]=$product['quantity'];
-    //     $productprice[$i]=$product['price'];
-    //     $productadminid[$i]=$product['admin_id'];
-    //     $i=$i+1;
-    // }
 
-    // for($j=0;$j<count($productid);$j++){
-    //     $sync_data[$productid[$j]]=['name'=>$productname[$j],'quantity'=>$productquantity[$j],'adminid'=>$productadminid[$j],'price'=>$productprice[$j]];
-    // }
-    // $checkout->products()->sync($sync_data,false);
-    // $checkout->save();
-$id=$checkout->id;
-foreach ($allproduct as $product) {
+    $id=$checkout->id;
+    foreach ($allproduct as $product) {
 
-     $ALL=\DB::table('user_checkouts')->insert([[
-    'checkout_id' =>$id,
-    'product_id' => $product['id'],
-    'name'=>$product['name'],
-    'quantity'=>$product['quantity'],
-    'adminid'=>$product['admin_id'],
-    'price'=>$product['price']
-]]);
+       $ALL=\DB::table('user_checkouts')->insert([[
+        'checkout_id' =>$id,
+        'product_id' => $product['id'],
+        'name'=>$product['name'],
+        'quantity'=>$product['quantity'],
+        'adminid'=>$product['admin_id'],
+        'price'=>$product['price']
+    ]]);
 
-session()->forget('cart');
+       session()->forget('cart');
 
 ///this is for broadcast
 
+   }
+
+
+
+   
 }
 
-
-
-     
-}
-    
     /**
      * Display the specified resource.
      *
@@ -161,7 +146,7 @@ session()->forget('cart');
      */
     public function show(Cart $cart)
     {
-     
+       
 
 
     }

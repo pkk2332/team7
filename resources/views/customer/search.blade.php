@@ -17,7 +17,7 @@
 		<h2 class="pl-3 text-white">Searched Products</h2>
 		
 		<div class="row">
-
+			@if($c->count()!= 0)
 			@foreach($c as $p)
 			<div class="col-lg-3 col-md-4 col-sm-6 col-12 p-4">
 				<a href="{{route('product.show',['id'=>$p->id])}}">
@@ -49,13 +49,10 @@
 				</a>
 			</div>
 			@endforeach
-
-
+			@else
+			<h2>The product you searched does not found!</h2>
+			@endif
 		</div>
-
-
-
-
 	</div>
 	@endsection
 

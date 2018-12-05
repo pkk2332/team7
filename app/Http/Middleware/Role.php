@@ -20,7 +20,8 @@ class Role
         if (\Auth::check()) {
 
             if (\Auth::user()->admin_id==null) {
-                   abort('404');
+                   abort('403');
+                   //forbidden to access admin link
             }
 
             $userrole = Admin::find(\Auth::user()->admin_id)->role;
@@ -32,7 +33,8 @@ class Role
                 }
 
             }
-            abort('404');
+            abort('403');
+            
         }
         
         redirect('/login');

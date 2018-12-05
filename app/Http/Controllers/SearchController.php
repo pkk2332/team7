@@ -15,6 +15,7 @@ class SearchController extends Controller
 
 		$c = Product::where('name','LIKE','%'.$s.'%' )->get();
 
+
 		return view ('customer.search',compact('c','category1'));
 	}
 }

@@ -1,5 +1,9 @@
 @extends('layouts.adminmaster')
 
+@section('title')
+<title>Checkout Table</title>
+@endsection
+
 @section('content')
 
 @include('admin.header')
