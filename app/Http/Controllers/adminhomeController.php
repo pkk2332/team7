@@ -44,14 +44,6 @@ class adminhomeController extends Controller
 
     }
     public function delete(Request $request){
-        // $imgid=$request->imgid;
-        // $proid=$request->proid;
-        // $filename=$request->filename;
-        // $medias=Product::find($proid)->getMedia();
-        // foreach($medias as $media){
-        //     if($media[0]==)
-        // } 
-
         
     }
     public function pushphoto(Request $request)
@@ -137,7 +129,17 @@ class adminhomeController extends Controller
 }
 
 
+public function noti(){
+    $id=\Auth::user()->admin_id;
 
+    $noti=\DB::table('user_checkouts')
+     ->where('adminid',$id)
+    ->where('seen',false)->get();
+
+    return response()->json([$noti]);
+
+
+}
 
 
 
@@ -149,8 +151,14 @@ class adminhomeController extends Controller
         return new Checkout($user);
     }
 
-
-
+    //unseen to seen
+   public function change(){
+        $id=\Auth::user()->id;
+        $user=User::find($id);
+        $user->seen=true;
+        $user->save();
+        return redirect('/admin');
+   }
 
 
 
@@ -366,9 +374,5 @@ class adminhomeController extends Controller
 
 
   }
-  
-
-
-
 
 }

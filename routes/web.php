@@ -29,7 +29,8 @@ Route::post('admin/delete','adminhomeController@delete');
 Route::get('admin/register', 'AdminRegisterController@showRegistrationForm')->name('adminregister');
 Route::post('admin/register', 'AdminRegisterController@register');
 
-
+Route::get('admin/change','adminhomeController@change')->name('change');
+Route::get('admin/noti','adminhomeController@noti')->name('admin.noti');
 
 
 

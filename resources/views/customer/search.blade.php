@@ -42,7 +42,7 @@
 									<button type="submit" class="button button-plain btn btn-primary btn-block text-center"><i class="fa fa-shopping-cart"></i></button>
 								</form>
 
-							</div>
+							read</div>
 
 						</div>
 					</div>
@@ -50,7 +50,7 @@
 			</div>
 			@endforeach
 			@else
-			<h2>The product you searched does not found!</h2>
+			<h2>Product Not found</h2>
 			@endif
 		</div>
 	</div>

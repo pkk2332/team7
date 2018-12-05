@@ -25170,10 +25170,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -25777,14 +25773,55 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
-		return {};
+		return {
+			noti: []
+
+		};
 	},
+
+	computed: {
+		count: function count() {
+			var a = Object.values(this.noti).filter(function (n) {
+				return n.seen != true;
+			});
+			return a.length;
+		}
+	},
+	methods: {
+		click: function click() {
+			for (var i = 0; i < this.noti.length; i++) {
+				this.noti[i].seen = true;
+			}
+			//console.log(this.noti)
+		}
+	},
+
 	mounted: function mounted() {
-		Echo.private('id').listen('Testevent', function (e) {
-			console.log(e);
+		var that = this;
+		axios.get('/admin/noti').then(function (response) {
+			that.noti = response.data[0];
+
+			//console.log(that.noti);
+			//console.log(response.data[0]);
+
+			Echo.private(that.noti.id).listen('Testevent', function (e) {
+				console.log(e);
+			});
 		});
 	}
 });
@@ -25797,9 +25834,58 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", [
+    _c(
+      "a",
+      {
+        staticClass: "nav-link count-indicator dropdown-toggle",
+        attrs: {
+          id: "notificationDropdown",
+          href: "#",
+          "data-toggle": "dropdown"
+        },
+        on: {
+          click: function($event) {
+            _vm.click()
+          }
+        }
+      },
+      [
+        _c("i", { staticClass: "mdi mdi-bell" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "count" }, [_vm._v(_vm._s(_vm.count))])
+      ]
+    ),
+    _vm._v(" "),
+    _vm._m(0)
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "dropdown-menu dropdown-menu-right navbar-dropdown preview-list",
+        attrs: { "aria-labelledby": "notificationDropdown" }
+      },
+      [
+        _c("a", { staticClass: "dropdown-item preview-item" }, [
+          _c("div", { staticClass: "preview-item-content" }, [
+            _c(
+              "h6",
+              { staticClass: "preview-subject font-weight-medium text-dark" },
+              [_vm._v("New user registration")]
+            )
+          ])
+        ])
+      ]
+    )
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

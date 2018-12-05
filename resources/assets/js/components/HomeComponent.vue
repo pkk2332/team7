@@ -187,7 +187,6 @@
 
         console.log(that.products);
         
-
         Object.values(that.products).forEach(function(a){
 
           a.quantity=1
