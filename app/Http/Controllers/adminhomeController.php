@@ -314,11 +314,18 @@ public function noti(){
     {
         $user=\Auth::user();
         $product=Product::find($id);
+
+         $id=\Auth::user()->admin_id;
+        $admin=Admin::find($id);
+        $c_id=$admin->category_id;
+        $subcat = SubCategory::where('category_id',$c_id)->pluck('name','id');
+
+
         if ($user->can('update',$product)){
 
             $images=Product::find($id)->getMedia();
             response()->json(["data"=>$id]);
-            return view('admin.edit',compact('images','product'));
+            return view('admin.edit',compact('images','product','subcat'));
             
         }
 
@@ -346,6 +353,7 @@ public function noti(){
         $product->description=$request->description;
         $product->quantity=$request->quantity;
         $product->price=$request->price;
+        $product->subcategories()->sync($request->sub_categories);
         $product->save();
         return redirect('admin');
     }
