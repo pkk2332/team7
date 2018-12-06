@@ -10,9 +10,13 @@
 <div class="main-panel">
 	<div class="content-wrapper">
 		<div class="row">
-			<a href="{{route('allpdf')}}" class="btn btn-danger"><i class="fa fa-download"></i>Export PDF</a>
+			<div class="col-md-12">
+				<div style="margin-bottom: 10px;">
+				<a href="{{route('allpdf')}}" class="btn btn-danger"><i class="fa fa-download"></i>Export PDF</a>
 			<a class="btn btn-success" href="{{route('downloadexcel')}}"><i class="fa fa-download"></i>Export Excel</a>
-			<table class="table table-dark">
+			</div>
+			<div class="table-responsive-sm">
+				<table class="table table-dark table-hover">
 				<thead>
 					<tr>
 						<td>Name</td>
@@ -32,6 +36,10 @@
 					@endforeach
 				</tbody>
 			</table>
+			</div>
+			</div>
+			
+			
 			@include("admin.footer")
 		</div>
 	</div>
