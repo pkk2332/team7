@@ -25799,14 +25799,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			var a = Object.values(this.noti).filter(function (n) {
 				return n.seen != true;
 			});
+
 			return a.length;
+		},
+		change: function change() {
+			var a = Object.values(this.noti).filter(function (n) {
+				return n.seen != true;
+			});
+			return a;
 		}
 	},
 	methods: {
-		click: function click() {
-			for (var i = 0; i < this.noti.length; i++) {
-				this.noti[i].seen = true;
-			}
+		click: function click(e) {
+
+			console.log(this$);
+			// for (var i=0; i<this.noti.length; i++) {
+			// 	this.noti[i].seen=true
+			// }
 			//console.log(this.noti)
 		}
 	},
@@ -25853,7 +25862,7 @@ var render = function() {
         },
         on: {
           click: function($event) {
-            _vm.click()
+            _vm.click($event)
           }
         }
       },
@@ -25868,7 +25877,7 @@ var render = function() {
       "div",
       {
         staticClass:
-          "dropdown-menu dropdown-menu-right navbar-dropdown preview-list",
+          "dropdown-menu dropdown-menu-right ref='id' navbar-dropdown preview-list",
         attrs: { "aria-labelledby": "notificationDropdown" }
       },
       [

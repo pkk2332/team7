@@ -1,10 +1,10 @@
 <template>
 	<div>
-		<a class="nav-link count-indicator dropdown-toggle" @click='click()' id="notificationDropdown" href="#" data-toggle="dropdown">
+		<a class="nav-link count-indicator dropdown-toggle" @click='click($event)' id="notificationDropdown" href="#" data-toggle="dropdown">
 			<i class="mdi mdi-bell"></i>
 			<span class="count">{{count}}</span>
 		</a>
-		<div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+		<div class="dropdown-menu dropdown-menu-right ref='id' navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
 			<a class="dropdown-item preview-item">
 				<div class="preview-item-content">
 					<a href="/admin/admincheckout" v-for="notify in noti"><h6 class="preview-subject font-weight-medium text-dark">{{notify.name}} has been bought</h6></a>
@@ -26,14 +26,23 @@
 				var a=  Object.values(this.noti).filter(function(n){
 					return n.seen!=true
 				})
+
 				return a.length
+			},
+			change(){
+				var a=  Object.values(this.noti).filter(function(n){
+					return n.seen!=true
+				}) 
+				return a
 			}
 		},
 		methods:{
-			click(){
-				for (var i=0; i<this.noti.length; i++) {
-					this.noti[i].seen=true
-				}
+			click(e){
+
+				console.log(this$)
+				// for (var i=0; i<this.noti.length; i++) {
+				// 	this.noti[i].seen=true
+				// }
 				//console.log(this.noti)
 			}
 		},
