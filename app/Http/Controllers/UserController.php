@@ -61,6 +61,17 @@ class UserController extends Controller
         //
     }
 
+        public function sub(Request $request)
+    {
+            $sub=SubCategory::find($request->id);
+
+
+            $product=$sub->products;
+
+            return view('customer.sub_pro',compact('product'));
+    }
+
+
     /**
      * Display the specified resource.
      *

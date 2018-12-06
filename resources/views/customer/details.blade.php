@@ -43,10 +43,10 @@
 
  					Tags : 
 
- 					@foreach($subs as $sub)
+ 					@foreach($product->subcategories as $sub)
 
  					
- 					<a href=""><kbd class="bg-light text-dark">{{ $sub->name }}</kbd></a>
+ 					<a href="{{route('sub',['id'=>$sub->id])}}"><kbd class="bg-light text-dark">{{ $sub->name }}</kbd></a>
 
  					@endforeach
  				</div>

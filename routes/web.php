@@ -50,6 +50,7 @@ Route::get("cart/data","CartController@data")->name("cart.data");
 Route::get('product/vote','UserController@vote')->name("product.vote");
 
 Route::get('product/all',"UserController@all")->name('all');
+Route::get('product/sub',"UserController@sub")->name('sub');
 
 Route::resource("admin","adminhomeController");
 Route::resource('cart', 'CartController');
