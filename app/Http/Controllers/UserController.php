@@ -65,10 +65,11 @@ class UserController extends Controller
     {
             $sub=SubCategory::find($request->id);
 
-
+            $name=$sub->name;
             $product=$sub->products;
+            $category1=Category::get();
 
-            return view('customer.sub_pro',compact('product'));
+            return view('customer.sub_pro',compact('product','name','category1'));
     }
 
 

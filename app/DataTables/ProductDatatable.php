@@ -43,11 +43,11 @@ class ProductDatatable extends DataTable
     {
         $id=\Auth::user()->admin_id;
         if(Admin::find($id)->role=="superadmin"){
-            return $model->newQuery()->select('id', 'name','description', 'price','quantity', 'created_at','updated_at');
+            return $model->newQuery()->select('id', 'name','description', 'price','quantity', 'created_at');
         }
         else{
             $products=DB::table('products')->where('admin_id',\Auth::user()->admin_id);
-            return $products->select('id', 'name','description', 'price','quantity','created_at', 'updated_at');
+            return $products->select('id', 'name','description', 'price','quantity','created_at');
 
         }
     }
@@ -117,11 +117,10 @@ class ProductDatatable extends DataTable
         'price',
         'quantity',
         'created_at',
-        'updated_at',
         'Edit'=>[ 'exportable' => false,
         'printable'      => false,],
         'Delete'=>[ 'exportable' => false,
-    'printable'      => false,]
+         'printable'      => false,]
     ];
     }
 
