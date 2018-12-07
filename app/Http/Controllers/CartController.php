@@ -118,7 +118,7 @@ public function delete1(Request $request)
     $id=$checkout->id;
     foreach ($allproduct as $product) {
 
-       $ALL=\DB::table('user_checkouts')->insert([[
+       $ALL=\DB::table('user_checkouts')->insertGetId([
         'checkout_id' =>$id,
         'product_id' => $product['id'],
         'name'=>$product['name'],
@@ -129,8 +129,8 @@ public function delete1(Request $request)
 
         //broadcasting
         
-    ]]);
-       event(new Testevent($product['admin_id'],$product['name']));
+    ]);
+       event(new Testevent($ALL,$product['admin_id'],$product['name']));
        session()->forget('cart');
 
 ///this is for broadcast

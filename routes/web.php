@@ -16,6 +16,10 @@ use App\Events\Testevent;
 Route::get('/', function () {
 	return view('welcome');
 });
+Route::get('/test', function () {
+	$a=event(new Testevent(2,'aaawer'));
+
+});
 Route::get("admin/data","adminhomeController@data")->name("admin.data");
 Route::get("admin/data1","adminhomeController@data1")->name("admin.data1");
 Route::post('cart/save', 'CartController@store1');
@@ -31,6 +35,8 @@ Route::post('admin/register', 'AdminRegisterController@register');
 
 Route::get('admin/change','adminhomeController@change')->name('change');
 Route::get('admin/noti','adminhomeController@noti')->name('admin.noti');
+Route::post('admin/notisave','adminhomeController@notisave');
+
 
 
 

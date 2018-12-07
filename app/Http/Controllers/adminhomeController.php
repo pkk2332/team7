@@ -134,11 +134,18 @@ public function noti(){
 
     $noti=\DB::table('user_checkouts')
      ->where('adminid',$id)
-    ->where('seen',false)->select('name','seen')->get();
+    ->where('seen',false)->select('id','name','seen')->get();
 
     return response()->json([$noti,$id]);
 
 
+}
+
+public function notisave(Request $request){
+
+          $noti=\DB::table('user_checkouts')
+          ->where('adminid',$request->adminid)
+          ->update(['seen'=>true]);
 }
 
 

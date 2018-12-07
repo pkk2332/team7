@@ -15,15 +15,17 @@ class Testevent implements ShouldBroadcast
     use Dispatchable, InteractsWithSockets, SerializesModels;
     public $message;
     public $name;
+    public $id;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($message,$name)
+    public function __construct($id,$message,$name)
     {
         $this->message=$message; 
-        $this->name=$name;   
+        $this->name=$name;
+          $this->id=$id;      
     }
 
     /**
@@ -38,7 +40,8 @@ class Testevent implements ShouldBroadcast
     }
     public function broadcastWith()
 {
-    return ['name' => $this->name,'seen'=>false];
+    return ['id'=>$this->id,'name' => $this->name,'seen'=>false];
 }
+
 
 }
