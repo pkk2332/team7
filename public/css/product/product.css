@@ -2,6 +2,10 @@ nav{
 	background-color: #2b2b2b;
 }
 
+.card-title{
+	min-height: 50px;
+}
+
 .productimage{
 	max-width: 100%;
 	max-height: 17rem;

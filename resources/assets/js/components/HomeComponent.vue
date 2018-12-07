@@ -109,9 +109,7 @@
         });
       },
       remove(a){
-
         axios.post('cart/delete', {
-
          id:this.products[a].id
        })
 
