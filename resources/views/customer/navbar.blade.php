@@ -31,7 +31,6 @@
         
            <span class="badge badge-info"">{{count(session('cart'))}}</span>
           @else 
-
             <span class="badge badge-info"">0</span>
           @endif
 

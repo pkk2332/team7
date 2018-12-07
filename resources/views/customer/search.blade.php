@@ -14,10 +14,9 @@
 	@include('session')
 	<div class="container-fluid py-5">
 
-		<h2 class="pl-3 text-white">Searched Products</h2>
-		
 		<div class="row">
 			@if($c->count()!= 0)
+			<h2 class="pl-3 text-white">Searched Products</h2>
 			@foreach($c as $p)
 			<div class="col-lg-3 col-md-4 col-sm-6 col-12 p-4">
 				<a href="{{route('product.show',['id'=>$p->id])}}">
@@ -50,7 +49,10 @@
 			</div>
 			@endforeach
 			@else
-			<h2>Product Not found</h2>
+			<div>
+			<h2 class="text-white">Product Not found</h2>
+			<p class="text-white">There are many products <a href="/product">here</a></p>
+			</div>
 			@endif
 		</div>
 	</div>

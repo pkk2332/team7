@@ -5,10 +5,6 @@
 @include('customer.navbar')
 
 
-
-
-
-
 <h2 class="pl-3 text-white">Tag :{{ $name }}</h2>
 
 <div class="row">

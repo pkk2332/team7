@@ -78,6 +78,7 @@
 </template>
 
 <script>
+  import swal from 'sweetalert';
   export default {
     data: function() {
       return {
@@ -97,8 +98,12 @@
           amount:this.Amount
         })
         .then(function (response) {
- window.location="/product" 
-})
+          swal("THANKS YOU", "Your purchase is complete. Items will be delivered within 7 days!!","success")
+          .then((value) => {
+            window.location="/product";
+          });
+
+        })
         .catch(function (error) {
 
         });
