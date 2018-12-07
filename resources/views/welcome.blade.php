@@ -14,8 +14,10 @@
                 </div>
             </div>
             <div class="bg-dark p-5">
-                <div class="">
-                    <h5 class="text-white font-weight-light p-5" style="line-height: 1.8;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a accusamus eos omnis repellat tenetur molestiae, explicabo veritatis quam consectetur. Harum porro quis aut laborum odit, mollitia fuga ex qui. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a accusamus eos omnis repellat tenetur molestiae, explicabo veritatis quam consectetur. Harum porro quis aut laborum odit, mollitia fuga ex qui. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a accusamus eos omnis repellat tenetur molestiae, explicabo veritatis quam consectetur. Harum porro quis aut laborum odit, mollitia fuga ex qui. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a accusamus eos omnis repellat tenetur molestiae, explicabo veritatis quam consectetur. Harum porro quis aut laborum odit, mollitia fuga ex qui.</h5>
+                <div class=" p-5">
+                    <h2 class="text-white font-weight-light">What is Symphony?</h2>
+                    <br>
+                    <h5 class="text-white font-weight-light" style="line-height: 1.8;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a accusamus eos omnis repellat tenetur molestiae, explicabo veritatis quam consectetur. Harum porro quis aut laborum odit, mollitia fuga ex qui. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a accusamus eos omnis repellat tenetur molestiae, explicabo veritatis quam consectetur. Harum porro quis aut laborum odit, mollitia fuga ex qui. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a accusamus eos omnis repellat tenetur molestiae, explicabo veritatis quam consectetur. Harum porro quis aut laborum odit, mollitia fuga ex qui. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a accusamus eos omnis repellat tenetur molestiae, explicabo veritatis quam consectetur. Harum porro quis aut laborum odit, mollitia fuga ex qui.</h5>
                 </div>
             </div>
 
@@ -40,7 +42,8 @@
 
             <div class="bg-dark p-5">
                 <div class="">
-                    <h5 class="text-white font-weight-light p-5" style="line-height: 1.8;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a accusamus eos omnis repellat tenetur molestiae, explicabo veritatis quam consectetur. Harum porro quis aut laborum odit, mollitia fuga ex qui. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a accusamus eos omnis repellat tenetur molestiae, explicabo veritatis quam consectetur. Harum porro quis aut laborum odit, mollitia fuga ex qui. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a accusamus eos omnis repellat tenetur molestiae, explicabo veritatis quam consectetur. Harum porro quis aut laborum odit, mollitia fuga ex qui. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a accusamus eos omnis repellat tenetur molestiae, explicabo veritatis quam consectetur. Harum porro quis aut laborum odit, mollitia fuga ex qui.</h5>
+                    <h5 class="text-white font-weight-light p-5" style="line-height: 1.8;">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a accusamus eos omnis repellat tenetur molestiae, explicabo veritatis quam consectetur. Harum porro quis aut laborum odit, mollitia fuga ex qui. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a accusamus eos omnis repellat tenetur molestiae, explicabo veritatis quam consectetur. Harum porro quis aut laborum odit, mollitia fuga ex qui. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a accusamus eos omnis repellat tenetur molestiae, explicabo veritatis quam consectetur. Harum porro quis aut laborum odit, mollitia fuga ex qui. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a accusamus eos omnis repellat tenetur molestiae, explicabo veritatis quam consectetur. Harum porro quis aut laborum odit, mollitia fuga ex qui.</h5>
                 </div>
             </div>
 
@@ -68,19 +71,22 @@
             <div class="bg-dark p-4 d-flex align-items-center justify-content-center">
                 <div class="pt-5">
 
-
-                    <h4 class="text-white text-center">Creators of this website</h4>
-                    <p class="text-white text-center">
-                        Phyo Ko Ko <br>
-                        Phyo Lin Maung <br>
-                        Htet Linn Oo <br>
-                        Nay Linn Oo <br>
-                    </p>
-
-                    <br><br>
+                    <div class="border pt-3" style="border-radius: 0.5rem">
 
 
-                    <h4 class="text-white font-weight-light text-center">2019 Copyright &copy; Symphony</h4>
+                        <h4 class="text-white text-center">Creators of this website</h4>
+                        <p class="text-white text-center">
+                            Phyo Ko Ko <br>
+                            Phyo Lin Maung <br>
+                            Htet Linn Oo <br>
+                            Nay Linn Oo 
+                        </p>
+
+                    </div>
+
+                    <br>
+
+                    <h4 class="text-white font-weight-light text-center">2019 Copyright &copy; Symphony Inc.</h4>
                     <h6 class="text-white font-weight-light text-center">No. 69, Barhmamahoke Street, Nowhere Tsp, Yangon, Myanmar</h6>
                 </div>
             </div>

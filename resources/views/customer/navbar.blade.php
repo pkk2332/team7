@@ -25,16 +25,15 @@
       </li>
 
       <li class="nav-item">
+
         <a class="nav-link px-5" href="/cart">
           <i class="fas fa-shopping-cart"></i>
           @if (Session::has('cart'))
-        
-           <span class="badge badge-info"">{{count(session('cart'))}}</span>
-          @else 
-            <span class="badge badge-info"">0</span>
-          @endif
 
-         
+          <span class="badge badge-info"">{{count(session('cart'))}}</span>
+          @else 
+          <span class="badge badge-info"">0</span>
+          @endif
         </a>
       </li>
 
