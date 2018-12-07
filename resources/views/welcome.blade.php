@@ -28,15 +28,12 @@
                         <h1 class="text-white text-right">No.1 Shopping website in Myanmar</h1>
                         <br>
                         <p class="text-white text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                            The trusted sources
                             <br>
-                            Ipsam, quis temporibus repudiandae incidunt voluptatibus 
+                            Known for the regular price and good quality
                             <br>
-                            blanditiis, vitae ea. Rem aliquid molestias deserunt quo 
+                            Your personal information will be kept as a secret
                             <br>
-                            perspiciatis, repudiandae repellat perferendis temporibus, 
-                            <br>
-                            architecto debitis vero.
                         </p>
 
                     </div>

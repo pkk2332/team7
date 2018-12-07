@@ -22,20 +22,32 @@
             @include('session')
 
             @if(\Auth::user()->seen==false)
+            <div class="row">
+              <div class="col-md-12" >
+                <div class="alert alert-warning">
+                  <p>To get all our functionalities the admins need to install one application.</p>
+                  <p>for Windows 32 bit please click <a href="https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox-0.12.5-1.msvc2015-win32.exe"> this link </a></p>
+                  <p>for Windows 64 bit please click <a href="https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox-0.12.5-1.msvc2015-win64.exe">this link</a></p>
+                  <p>for Ubuntu please click <a href="https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.bionic_amd64.deb">this link</a></p>
+                  <p>for Mac OS Cocoa 64 bit please click <a href="https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox-0.12.5-1.macos-cocoa.pkg">this link</a></p>
+                  <p>for mac OS Macos please click <a href="https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox-0.12.5-1.macos-carbon.pkg">this link</a></p>
+                  <p>.<a href="{{route('change')}}" class="btn btn-primary" style="float: right">Already Installed</a></p>
+                </div>
+                
+              </div>
+            </div>
 
-              <p>To get all our functionalities the admins need to install one application.</p>
-              <p>for window 32 bit plz click <a href="https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox-0.12.5-1.msvc2015-win32.exe"> this link </a></p>
-              <p>for windows 64 bit plx click <a href="https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox-0.12.5-1.msvc2015-win64.exe">this link</a></p>
-              <p>for ubuntu plx click <a href="https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.bionic_amd64.deb">this link</a></p>
-              <p>for mac OS cocoa 64 bit plx click <a href="https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox-0.12.5-1.macos-cocoa.pkg">this link</a></p>
-              <p>for mac OS plx click <a href="https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox-0.12.5-1.macos-carbon.pkg">this link</a></p>
-              <a href="{{route('change')}}">Already Installed</a>
+            
+            
+            
+
+            
             @endif
 
 
             {!! $dataTable->table() !!}
 
-                        
+
 
           </div>
         </div>
@@ -76,11 +88,10 @@
   </script> --}}
 
 
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
-<script src="https:
-//cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.js"></script>
-<script src="/vendor/datatables/buttons.server-side.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
+  <script src="https://cdn.datatables.net/buttons/1.5.4/js/dataTables.buttons.min.js"></script>
+  <script src="/vendor/datatables/buttons.server-side.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.js"></script>
 
   {!! $dataTable->scripts() !!}
   <script>
@@ -118,7 +129,7 @@
 
     // });
     $('#dataTableBuilder_wrapper tbody').on('click', 'td.details-control', function () {
-var oTable = $('#dataTableBuilder').DataTable();
+      var oTable = $('#dataTableBuilder').DataTable();
       var tr = $(this).closest('tr');
       var row = oTable  .row(tr);
       console.log(row.child.isShown());
@@ -151,25 +162,25 @@ var oTable = $('#dataTableBuilder').DataTable();
               });
     
     function format(d){
-       $(document).ready(function(){
-    $('.popupimage').click(function(event){
+     $(document).ready(function(){
+      $('.popupimage').click(function(event){
         event.preventDefault();
         $('.modal img').attr('src',$(this).attr('href'));
         $('.modal').modal('show'); 
+      });
     });
-  });
-      var string1='<table cellpadding="5" cellspacing="0" border = "0"  style = "padding-left:50px;"><tr><td>Images:</td>';
-      var string3='';
-      var arraylength=d.length;
-      for (var i = 0; i < arraylength; i++) {
+     var string1='<table cellpadding="5" cellspacing="0" border = "0"  style = "padding-left:50px;"><tr><td>Images:</td>';
+     var string3='';
+     var arraylength=d.length;
+     for (var i = 0; i < arraylength; i++) {
 
-        string3+=`<a class="popupimage" href="/storage/${d[i].id}/${d[i].file_name}"><img class="img-fluid img-thumbnail" style="width:100px;height:100px;" src="/storage/${d[i].id}/${d[i].file_name}"></a>
-        `
-      }
+      string3+=`<a class="popupimage" href="/storage/${d[i].id}/${d[i].file_name}"><img class="img-fluid img-thumbnail" style="width:100px;height:100px;" src="/storage/${d[i].id}/${d[i].file_name}"></a>
+      `
+    }
 
-      var string4='<td>'+string3+'</td></tr></table>';
-      return string1+string4;
-    }    
+    var string4='<td>'+string3+'</td></tr></table>';
+    return string1+string4;
+  }    
 
     // Add event listener for opening and closing details
     

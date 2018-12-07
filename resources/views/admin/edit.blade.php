@@ -73,9 +73,30 @@
                 <input type="text" class="form-control" name="price" placeholder="Enter Product Price" value="{{ $product->price }} ">
                 @endif
               </div>
-      {{-- image start --}}
+                @php
+                  $scat=$product->subcategories->pluck('name','id');
+                  $diff=$subcat->diff($scat)
+                  
+                @endphp
+            <div class="form-group">
+              <label for="count">Sub-Categories</label>
+              <select id="product_categories" class="simple-select2 w-100" name="sub_categories[]" multiple="multiple">
 
-      {{-- image end --}}
+                @foreach($scat as $key => $value)
+                  
+                <option selected value="{{ $key}}">{{ $value }}</option>
+
+                @endforeach
+                @foreach($diff as $key => $value)
+                 <option value="{{ $key }}">{{ $value }}</option>
+
+                 @endforeach
+              </select>
+             
+            </div>
+
+
+
             <div class="form-group">
               <label for="descritption">Description</label>
               @if($errors->has('quantity'))
@@ -84,10 +105,12 @@
                   {{ $errors->first("quantity") }}
                 </div>
                 @else
-                <textarea class="form-control" name="description" id="description" rows="5" value=" {{ $product->description }}"></textarea>
+                <textarea class="form-control" name="description" id="description" rows="5" value=" ">{{ $product->description }}</textarea>
                 @endif
               
             </div>
+
+
             <div>
               <button type="submit" id='submit-all'class="btn btn-success mr-2">Submit</button>
             </div>
@@ -110,5 +133,8 @@
 @endsection
 
 @section("script")
-
+<script>  $(document).ready(function() {
+    $('#product_categories').select2();
+  });
+  </script>
 @endsection

@@ -25091,6 +25091,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+throw new Error("Cannot find module \"sweetalert\"");
 //
 //
 //
@@ -25171,6 +25172,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -25189,7 +25191,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         tax: this.tax,
         amount: this.Amount
       }).then(function (response) {
-        window.location = "/product";
+        __WEBPACK_IMPORTED_MODULE_0_sweetalert___default()("THANKS YOU", "Your purchase is complete. Items will be delivered within 7 days!!", "success").then(function (value) {
+          window.location = "/product";
+        });
       }).catch(function (error) {});
     },
     remove: function remove(a) {
@@ -25789,8 +25793,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
 		return {
-			noti: []
-
+			noti: [],
+			adminid: null
 		};
 	},
 
@@ -25799,14 +25803,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			var a = Object.values(this.noti).filter(function (n) {
 				return n.seen != true;
 			});
+
 			return a.length;
+		},
+		change: function change() {
+			var a = Object.values(this.noti).filter(function (n) {
+				return n.seen != true;
+			});
+			return a;
 		}
 	},
 	methods: {
-		click: function click() {
-			for (var i = 0; i < this.noti.length; i++) {
-				this.noti[i].seen = true;
-			}
+		click: function click(e) {
+
+			console.log(this$);
+			// for (var i=0; i<this.noti.length; i++) {
+			// 	this.noti[i].seen=true
+			// }
 			//console.log(this.noti)
 		}
 	},
@@ -25815,12 +25828,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		var that = this;
 		axios.get('/admin/noti').then(function (response) {
 			that.noti = response.data[0];
+			that.adminid = response.data[1];
 
-			//console.log(that.noti);
+			console.log(that.noti);
 			//console.log(response.data[0]);
 
-			Echo.private(that.noti.id).listen('Testevent', function (e) {
-				console.log(e);
+
+			Echo.channel('id.' + that.adminid).listen('Testevent', function (e) {
+
+				that.noti.push({
+					name: e.name,
+					seen: false
+				});
+				console.log(that.noti);
 			});
 		});
 	}
@@ -25846,7 +25866,7 @@ var render = function() {
         },
         on: {
           click: function($event) {
-            _vm.click()
+            _vm.click($event)
           }
         }
       },
@@ -25857,35 +25877,36 @@ var render = function() {
       ]
     ),
     _vm._v(" "),
-    _vm._m(0)
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
+    _c(
       "div",
       {
         staticClass:
-          "dropdown-menu dropdown-menu-right navbar-dropdown preview-list",
+          "dropdown-menu dropdown-menu-right ref='id' navbar-dropdown preview-list",
         attrs: { "aria-labelledby": "notificationDropdown" }
       },
       [
         _c("a", { staticClass: "dropdown-item preview-item" }, [
-          _c("div", { staticClass: "preview-item-content" }, [
-            _c(
-              "h6",
-              { staticClass: "preview-subject font-weight-medium text-dark" },
-              [_vm._v("New user registration")]
-            )
-          ])
+          _c(
+            "div",
+            { staticClass: "preview-item-content" },
+            _vm._l(_vm.noti, function(notify) {
+              return _c("a", { attrs: { href: "/admin/admincheckout" } }, [
+                _c(
+                  "h6",
+                  {
+                    staticClass: "preview-subject font-weight-medium text-dark"
+                  },
+                  [_vm._v(_vm._s(notify.name) + " has been bought")]
+                )
+              ])
+            })
+          )
         ])
       ]
     )
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
