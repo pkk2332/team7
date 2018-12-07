@@ -25,7 +25,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link px-5" href="/cart"><i class="fas fa-shopping-cart"></i></a>
+        <a class="nav-link pt-3 px-5" href="/cart"><i class="fas fa-shopping-cart"></i></a>
       </li>
 
       <li class="nav-item dropdown">
