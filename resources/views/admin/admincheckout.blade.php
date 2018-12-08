@@ -16,7 +16,7 @@
 			<a class="btn btn-success" href="{{route('downloadexcel')}}"><i class="fa fa-download"></i>Export Excel</a>
 			</div>
 			<div class="table-responsive-sm">
-				<table class="table table-dark table-hover">
+				<table class="table table-hover">
 				<thead>
 					<tr>
 						<td>Name</td>
