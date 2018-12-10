@@ -8,7 +8,6 @@
             <h1 class="text-white display-4">Your Cart</h1>
           </div>
         </div>
-
         <div class="" v-for="(product,index) in products">
           <div class="row border border-top-0 border-dark">
             <div class="col-3 p-2">

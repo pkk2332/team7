@@ -26140,7 +26140,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			if (this.show == false && this.ii > 0) {
 				for (var i = 0; i < this.noti.length; i++) {
 					this.noti[i].seen = true;
+					this.ii = this.ii - 1;
 				}
+				axios.post('/admin/notisave', {
+					adminid: this.adminid
+				});
 			}
 		}
 	},
