@@ -19,7 +19,7 @@
 		<div class="preview-item-content">
 
 
-			<div v-if="change.length!=0">
+			<div v-if="change.length!=0" style="text-decoration: none;">
 				<a  href="/admin/admincheckout"  v-for="notify in change">
 
 					<h6  class="preview-subject font-weight-medium text-dark">{{notify.name}} has been bought </h6>
