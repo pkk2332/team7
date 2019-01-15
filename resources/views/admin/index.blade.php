@@ -21,7 +21,7 @@
 
             @include('session')
 
-            @if(\Auth::user()->seen==false)
+{{--             @if(\Auth::user()->seen==false)
             <div class="row">
               <div class="col-md-12" >
                 <div class="alert alert-warning">
@@ -42,7 +42,7 @@
             
 
             
-            @endif
+            @endif --}}
 
 
             {!! $dataTable->table() !!}

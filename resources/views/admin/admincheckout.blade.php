@@ -40,9 +40,11 @@
 			</div>
 			
 			
-			@include("admin.footer")
+			
 		</div>
+
 	</div>
+	@include("admin.footer")
 </div>
 
 
