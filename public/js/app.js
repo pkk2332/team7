@@ -25908,6 +25908,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
     }).then(function (response) {
       that.files = response.data.data.image;
+      console.log(response);
     }).catch(function (error) {
       console.log(error);
     });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\SubCategory;
 use Illuminate\Http\Request;
 use App\Admin;
+use App\Services\SubcatService;
 
 class SubCategoryController extends Controller
 {
@@ -13,6 +14,11 @@ class SubCategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $subcatservice;
+    public function __construct(SubcatService $sub)
+    {
+        $this->subcatservice= $sub;
+    }
     public function index()
     {
         //
@@ -45,11 +51,8 @@ class SubCategoryController extends Controller
         //
         $request -> validate(SubCategory::$rules);
 
-        $subcategory = SubCategory::create([
-            'name' => $request->name,
-            'category_id' => $request->category_id
-        ]);
-        $subcategory->save();
+        dd($this->subcatservice->createsub($request));
+        // $subcategory->save();
         return redirect("/admin");
     }
 

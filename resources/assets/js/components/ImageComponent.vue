@@ -128,7 +128,8 @@ export default {
     }
   })
   .then(function (response) {
-  	that.files=response.data.data.image
+    that.files=response.data.data.image
+    console.log(response)
   })
   .catch(function (error) {
     console.log(error);
