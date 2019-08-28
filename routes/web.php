@@ -2,6 +2,9 @@
 use App\Http\Resources\Product as ProductResource;
 use App\Product;
 use App\Events\Testevent;
+use App\Mail\OrderShipped;
+use Illuminate\Support\Facades\Mail;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,8 +20,7 @@ Route::get('/', function () {
 	return view('welcome');
 });
 Route::get('/test', function () {
-	$a=event(new Testevent(2,'aaawer'));
-
+Mail::to(auth()->user())->send(new OrderShipped('Esy mail'));
 });
 Route::get("admin/data","adminhomeController@data")->name("admin.data");
 Route::get("admin/data1","adminhomeController@data1")->name("admin.data1");

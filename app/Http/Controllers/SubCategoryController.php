@@ -51,7 +51,7 @@ class SubCategoryController extends Controller
         //
         $request -> validate(SubCategory::$rules);
 
-        dd($this->subcatservice->createsub($request));
+        $this->subcatservice->createsub($request);
         // $subcategory->save();
         return redirect("/admin");
     }

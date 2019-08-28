@@ -3,16 +3,15 @@
 namespace App\Services;
 
 use App\Repositories\SubcatRepository;
+use App\Services\Traits\Createsubcat;
 
 class SubcatService{
 
+    use Createsubcat;
     public $subcat;
-   public function __construct(SubcatRepository $sub){
+    public function __construct(SubcatRepository $sub){
             $this->subcatrepo = $sub;
     }
 
-    public function createsub($data) {
-        $subcategory = $this->subcatrepo->createone($data);
-        return $subcategory;
-    }
+  
 }

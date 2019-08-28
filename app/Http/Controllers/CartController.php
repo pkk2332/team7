@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\ProductResource as ProductResource;
 use App\Http\Resources\ProductCollection as ProductCollection;
+use App\User;
 
 class CartController extends Controller
 {
@@ -32,7 +33,10 @@ class CartController extends Controller
 
 
 
-
+public function createtoken(Request $request){
+    // dd(User::find(2)->createToken('My Token')->accessToken);
+    dd(auth('api')->user());
+}
 
 
 public function delete1(Request $request)
